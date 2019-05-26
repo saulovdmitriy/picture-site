@@ -267,7 +267,27 @@ module.exports = popupDesign;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var popupGift = function popupGift() {};
+var popupGift = function popupGift() {
+  var btnGift = document.querySelector('.fixed-gift'),
+      popupGift = document.querySelector('.popup-gift'),
+      popupClose = document.querySelectorAll('.popup-close'),
+      popupOverlay = document.querySelector('.popup-overlay');
+  btnGift.addEventListener('click', function () {
+    popupGift.style.display = 'block';
+    popupOverlay.style.display = 'block';
+    btnGift.style.display = 'none';
+  });
+  popupClose.forEach(function (elem) {
+    elem.addEventListener('click', function () {
+      popupGift.style.display = 'none';
+      popupOverlay.style.display = 'none';
+    });
+  });
+  popupOverlay.addEventListener('click', function () {
+    popupGift.style.display = 'none';
+    popupOverlay.style.display = 'none';
+  });
+};
 
 module.exports = popupGift;
 
