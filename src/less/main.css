@@ -100,7 +100,7 @@ h4 {
 }
 .fixed-gift {
   position: fixed;
-  z-index: 10000;
+  z-index: 11;
   display: inline;
   top: 4rem;
   right: 2rem;
@@ -831,7 +831,7 @@ h4 {
   position: absolute;
   bottom: -3rem;
   left: 15rem;
-  z-index: 1000000;
+  z-index: 18;
 }
 .feedback-block .button-order:before {
   content: '';
@@ -994,6 +994,7 @@ h4 {
 }
 .popup-consultation {
   display: none;
+  z-index: 20;
 }
 .popup-consultation .button-transparent {
   border: 2px dashed #c51abb;

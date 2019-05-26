@@ -25,6 +25,12 @@ const popupConsultation = () => {
         popupOverlay.style.display = 'none';
     });
 
+    setTimeout(function() {
+        popupConsult.style.display = 'block';
+        popupOverlay.style.display = 'block';
+    }, 60000);
+
+
 };
 
 module.exports = popupConsultation;
