@@ -192,16 +192,37 @@ module.exports = menu;
 
 /***/ }),
 
-/***/ "./src/js/parts/modal.js":
-/*!*******************************!*\
-  !*** ./src/js/parts/modal.js ***!
-  \*******************************/
+/***/ "./src/js/parts/popup-consultation.js":
+/*!********************************************!*\
+  !*** ./src/js/parts/popup-consultation.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var modalJs = function modalJs() {};
+var popupConsultation = function popupConsultation() {
+  var popupConsult = document.querySelector('.popup-consultation'),
+      btnConsult = document.querySelectorAll('.button-consultation'),
+      popupClose = document.querySelectorAll('.popup-close'),
+      popupOverlay = document.querySelector('.popup-overlay');
+  btnConsult.forEach(function (elem) {
+    elem.addEventListener('click', function () {
+      popupConsult.style.display = 'block';
+      popupOverlay.style.display = 'block';
+    });
+  });
+  popupClose.forEach(function (elem) {
+    elem.addEventListener('click', function () {
+      popupConsult.style.display = 'none';
+      popupOverlay.style.display = 'none';
+    });
+  });
+  popupOverlay.addEventListener('click', function () {
+    popupConsult.style.display = 'none';
+    popupOverlay.style.display = 'none';
+  });
+};
 
-module.exports = modalJs;
+module.exports = popupConsultation;
 
 /***/ }),
 
@@ -304,7 +325,9 @@ window.addEventListener('DOMContentLoaded', function () {
   var sliderTop = __webpack_require__(/*! ./parts/slider-top.js */ "./src/js/parts/slider-top.js"),
       menu = __webpack_require__(/*! ./parts/menu */ "./src/js/parts/menu.js"),
       tabs = __webpack_require__(/*! ./parts/tabs.js */ "./src/js/parts/tabs.js"),
-      modalJs = __webpack_require__(/*! ./parts/modal.js */ "./src/js/parts/modal.js"),
+      popupConsultation = __webpack_require__(/*! ./parts/popup-consultation.js */ "./src/js/parts/popup-consultation.js"),
+      popupDesign = __webpack_require__(/*! ./parts/popup-consultation.js */ "./src/js/parts/popup-consultation.js"),
+      popupGift = __webpack_require__(/*! ./parts/popup-consultation.js */ "./src/js/parts/popup-consultation.js"),
       sendform = __webpack_require__(/*! ./parts/sendform.js */ "./src/js/parts/sendform.js"),
       sliderBottom = __webpack_require__(/*! ./parts/slider-bottom.js */ "./src/js/parts/slider-bottom.js"),
       calc = __webpack_require__(/*! ./parts/calc.js */ "./src/js/parts/calc.js");
@@ -312,7 +335,9 @@ window.addEventListener('DOMContentLoaded', function () {
   sliderTop();
   menu();
   tabs();
-  modalJs();
+  popupConsultation();
+  popupDesign();
+  popupGift();
   sendform();
   sliderBottom();
   calc();

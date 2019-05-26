@@ -8,7 +8,9 @@ window.addEventListener('DOMContentLoaded', function() {
     let sliderTop = require('./parts/slider-top.js'),
         menu = require('./parts/menu'),
         tabs = require('./parts/tabs.js'),
-        modalJs = require('./parts/modal.js'),
+        popupConsultation = require('./parts/popup-consultation.js'),
+        popupDesign = require('./parts/popup-consultation.js'),
+        popupGift = require('./parts/popup-consultation.js'),
         sendform = require('./parts/sendform.js'),
         sliderBottom = require('./parts/slider-bottom.js'),
         calc = require('./parts/calc.js');
@@ -16,7 +18,9 @@ window.addEventListener('DOMContentLoaded', function() {
     sliderTop();
     menu();
     tabs();
-    modalJs();
+    popupConsultation();
+    popupDesign();
+    popupGift();
     sendform();
     sliderBottom();
     calc();

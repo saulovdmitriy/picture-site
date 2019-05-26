@@ -1038,16 +1038,7 @@ h1, h2, h3, h4 {
 }
 .popup {
 		&-consultation {
-			z-index: 20;
-			position: fixed;
-			display: none;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(178, 80, 188, 0.8);
+			 display: none;
 			.button-transparent {
 				border: 2px dashed @button;
 				width: 100%;
@@ -1104,20 +1095,12 @@ h1, h2, h3, h4 {
 		border-radius: 4px;
 		transform: translateX(-50%) !important;
 		padding: 4rem 6rem 5rem 6rem;
+		z-index: 25;
 	}
 }
 .popup {
 		&-gift {
-			z-index: 20;
-			position: fixed;
 			display: none;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(178, 80, 188, 0.8);
 			h2 {
 				padding-bottom: 2rem;
 			}
@@ -1156,16 +1139,7 @@ h1, h2, h3, h4 {
 }
 .popup {
 	&-design {
-			z-index: 20;
-			position: fixed;
 			display: none;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(178, 80, 188, 0.8);
 			input[name="name"] {
 				margin-top: 2rem;
 			}
@@ -1257,7 +1231,7 @@ h1, h2, h3, h4 {
 		right: -1.5rem;
 		font-size: 5rem;
 		width: 5rem;
-	 height: 5rem;
+	 	height: 5rem;
 		line-height: 5rem;
 		text-align: center;
 		background: transparent;
@@ -1277,572 +1251,585 @@ h1, h2, h3, h4 {
 	}
 }
 
-	@media  (max-width: 1399px) {
-		.paints {
-			display: none;
-		}
-		.calc {
-			.file_upload > div{
-			    display: none
-			}
-			.file_upload > button{
-			    width: 100%
-			}
+.popup-overlay {
+	z-index: 19;
+	position: fixed;
+	display: none;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(178, 80, 188, 0.8);
+}
 
-		}
-		.popup-design {
-			.file_uploa > div{
-			    display: none
-			}
-			.file_uploa > button{
-			    width: 100%
-			}
-
-		}
-		.main {
-			.file_uplo > div{
-			    display: none
-			}
-			.file_uplo > button{
-			    width: 100%
-			}
-
-		}
-	}
-	@media  (max-width: 1199px) {
-		.fixed-gift {
-			display: none;
-		}
-		.header {
-			.burger {
-				padding: 2.1rem 1rem;
-				font-size: 1.3rem;
-				img {
-					width: 1rem;
-					height: 1rem;
-				}
-			}
-			&-menu {
-				li {
-					font-size: 1.4rem;
-					padding: 2rem 1rem;
-				}
-			}
-			.button-order {
-				padding: 1rem 2rem;
-				font-size: 1.3rem;
-			}
-		}
-		.main {
-			h1 {
-				font-size: 4.5rem;
-				margin-bottom: 5rem;
-				margin-top: 2rem;
-			}
-			.p-heading {
-				margin-top: 3rem;
-			}
-			.p-button {
-				margin-top: 4rem;
-			}
-			.button-order {
-				margin-bottom: 3rem;
-			}
-		}
-		.promo {
-			&-img {
-				left: 0;
-			}
-			h2 {
-				line-height: 1.1;
-			}
-		}
-		.card {
-			.p-heading {
-				margin: 3rem 0 4rem 0;
-			}
-		}
-		.gift {
-			&-img-1, &-img-3 {
-				left: -4.5rem;
-			}
-			&-img-2 {
-				left: -5.5rem;
-			}
-		}
-		.features {
-			h4 {
-				margin-left: 15rem;
-			}
-		}
-		.sizes {
-			&-block {
-				.sizes-hit {
-					left: 4.8rem;
-					bottom: -2.7rem;
-				}
-			}
-		}
-	.card-2 {
-		img {
-			margin-top: 2rem;
-		}
-	}
-	.card-3 {
-		.card-block {
-			&-text {
-				padding-top: 2rem;
-			}
-		}
-	}
-	.promo-2 {
-		.p-heading {
-			margin-top: 0;
-		}
-		.button-order {
-			margin-top: 3rem;
-		}
-		img {
-			right: 0;
-		}
-	}
-	.feedback {
-		&-slider-item {
-			padding-bottom: 7rem;
-		}
-		&-heading {
-			margin: 0;
-		}
-	}
-	.often-questions {
-		.brushes {
-			display: none;
-		}
-		.spirt {
-			top: -25rem;
-			height: 50rem;
-		}
-	}
-	.footer {
-		.phone {
-			font-size: 2.4rem;
-		}
-		td {
-			padding-right: 2.5rem;
-		}
+@media  (max-width: 1399px) {
+	.paints {
+		display: none;
 	}
 	.calc {
+		.file_upload > div{
+			display: none
+		}
+		.file_upload > button{
+			width: 100%
+		}
+
+	}
+	.popup-design {
+		.file_uploa > div{
+			display: none
+		}
+		.file_uploa > button{
+			width: 100%
+		}
+
+	}
+	.main {
+		.file_uplo > div{
+			display: none
+		}
+		.file_uplo > button{
+			width: 100%
+		}
+
+	}
+}
+@media  (max-width: 1199px) {
+	.fixed-gift {
+		display: none;
+	}
+	.header {
+		.burger {
+			padding: 2.1rem 1rem;
+			font-size: 1.3rem;
+			img {
+				width: 1rem;
+				height: 1rem;
+			}
+		}
+		&-menu {
+			li {
+				font-size: 1.4rem;
+				padding: 2rem 1rem;
+			}
+		}
+		.button-order {
+			padding: 1rem 2rem;
+			font-size: 1.3rem;
+		}
+	}
+	.main {
+		h1 {
+			font-size: 4.5rem;
+			margin-bottom: 5rem;
+			margin-top: 2rem;
+		}
+		.p-heading {
+			margin-top: 3rem;
+		}
+		.p-button {
+			margin-top: 4rem;
+		}
+		.button-order {
+			margin-bottom: 3rem;
+		}
+	}
+	.promo {
+		&-img {
+			left: 0;
+		}
+		h2 {
+			line-height: 1.1;
+		}
+	}
+	.card {
+		.p-heading {
+			margin: 3rem 0 4rem 0;
+		}
+	}
+	.gift {
+		&-img-1, &-img-3 {
+			left: -4.5rem;
+		}
+		&-img-2 {
+			left: -5.5rem;
+		}
+	}
+	.features {
+		h4 {
+			margin-left: 15rem;
+		}
+	}
+	.sizes {
+		&-block {
+			.sizes-hit {
+				left: 4.8rem;
+				bottom: -2.7rem;
+			}
+		}
+	}
+.card-2 {
+	img {
+		margin-top: 2rem;
+	}
+}
+.card-3 {
+	.card-block {
 		&-text {
-			margin-right: -9rem;
+			padding-top: 2rem;
 		}
 	}
 }
-	@media  (max-width: 991px) {
-		.header {
-			.burger {
-				cursor: pointer;
-				span {
-					display: none;
-				}
-				img {
-					width: 2rem;
-					height: 2rem;
-					margin: 0 1rem;
-				}
-			}
-		}
-		.main {
-			&-features {
-				img {
-					top: 0;
-				}
-			}
-			.p-button {
-				text-align: center;
-			}
-			h1 {
-				text-align: center;
-			}
-		}
-		.promo {
-			p, h2 {
-				text-align: center;
-			}
-			.button-order {
-				margin: 0 auto;
-			}
-			.palette {
-				width: 0;	
-				height: 0;
-			}
-		}
-		.card {
-			&-block {
-				padding-top: 5rem;
-			}
-			h3 {
-				font-size: 2.5rem;
-			}
-			.p-heading {
-				font-size: 1.5rem;
-			}
-		}
-		.card-1 {
-			.p-heading {
-				margin: 2rem 0 3rem 0;
-			}
-		}
-		.portfolio {
-			&-wrapper {
-				justify-content: space-around;
-			}
-			&-block {
-				width: auto;
-			}
-		}
-		.gift {
-			background-position-x: 0;
-			background-size: auto;
-			&-features {
-				h4 {
-					margin-left: 4rem;
-					margin-bottom: 4rem;
-					font-size: 1.6rem;
-					img {
-						left: -6rem;
-					}
-				}
-			}
-		}
-		.sizes {
-			&-block {
-				.sizes-hit {
-					left: 4rem;
-					bottom: -2.9rem;
-				}
-			}
-		}
-		.card-3 {
-			.card-block {
-				.p-heading {
-					margin: 2.5rem 0  3.5rem 0;
-				}
-				&-text {
-					padding-top: 0;
-				}
-			}
-		}
-		.promo-2 {
-			&-block {
-				margin: 0;
-				h2, .p-heading {
-					text-align: center;
-				}
-				.button-order {
-					margin: 4rem auto;
-				}
-			}
-			img {
-				left: -10%;
-			}
-		}
-		.feedback {
-				&-heading {
-					font-size: 2rem;
-				}
-				&-text {
-					margin: 1rem 0;
-				}
-				.button-order {
-					left: 11rem;
-				}
-		}
-		.often-questions {
-			.spirt {
+.promo-2 {
+	.p-heading {
+		margin-top: 0;
+	}
+	.button-order {
+		margin-top: 3rem;
+	}
+	img {
+		right: 0;
+	}
+}
+.feedback {
+	&-slider-item {
+		padding-bottom: 7rem;
+	}
+	&-heading {
+		margin: 0;
+	}
+}
+.often-questions {
+	.brushes {
+		display: none;
+	}
+	.spirt {
+		top: -25rem;
+		height: 50rem;
+	}
+}
+.footer {
+	.phone {
+		font-size: 2.4rem;
+	}
+	td {
+		padding-right: 2.5rem;
+	}
+}
+.calc {
+	&-text {
+		margin-right: -9rem;
+	}
+}
+}
+@media  (max-width: 991px) {
+	.header {
+		.burger {
+			cursor: pointer;
+			span {
 				display: none;
 			}
-		}
-		.footer {
-			.phone-whatsapp {
-				margin: 0.5rem 0;
-			}
-		}
-		.calc {
-			select {
-				position: relative;
-				left: 30%;
-			}
-			.button-transparent {
-				margin: 4rem auto;
-				width: auto;
-			}
-		}
-	}
-	@media  (max-width: 767px) {
-		.main {
-			&-features {
-				max-width: 30rem;
-				margin-left: auto;
-				margin-right: auto;
-			}
-		}
-		 		.card {
-			&-block {
-				padding: 5rem;
-				img, .button-order {
-					display: block;
-					margin: 0 auto;
-				}
-				&-text {
-					margin: 0;
-					h3, .p-heading {
-						text-align: center;
-					}
-				}
-			}
-		} 
-		.gift {
-			background-size: cover;
-			h3, p {
-				text-align: center;
-			}
-		}
-		.sizes {
-			&-wrapper {
-				flex-wrap: wrap;
-				justify-content: space-around;
-			}
-			&-block {
-				.sizes-hit {
-					left: 6rem;
-					bottom: -2.4rem;
-				}
-			}
-		}
-		.scheme {
-			padding-bottom: 6rem;
-			&-block {
-				height: 27rem;
-			}
-		}
-		.card-3 {
-			.card-block {
-				padding: 0;
-				&-text {
-					padding: 2rem;
-				}
-			}
-			padding: 0;
 			img {
-				float: right;
-			}
-		}
-		.feedback {
-			&-slider-item {
-				padding-bottom: 0;
-			}
-			&-heading {
-				margin-top: 6rem;
-			}
-			.slick-slide {
-				img {
-					left: 0;
-					margin: 0 auto;
-				}
-			}
-			.button-order {
-				left: 50%;
-				transform: translateX(-50%);
-				width: 18rem;
-			}
-		}
-		.consultation {
-			padding: 6rem 0;
-			h2 {
-				margin-bottom: 3rem;
-			}
-			input {
-				width: 100%;
-			}
-		}
-		.footer {
-			p {
-				text-align: center;
+				width: 2rem;
+				height: 2rem;
+				margin: 0 1rem;
 			}
 		}
 	}
-	@media (max-width: 577px) {
-		h2 {
-		    font-size: 3.5rem;
+	.main {
+		&-features {
+			img {
+				top: 0;
+			}
+		}
+		.p-button {
+			text-align: center;
+		}
+		h1 {
+			text-align: center;
+		}
+	}
+	.promo {
+		p, h2 {
+			text-align: center;
+		}
+		.button-order {
+			margin: 0 auto;
+		}
+		.palette {
+			width: 0;	
+			height: 0;
+		}
+	}
+	.card {
+		&-block {
+			padding-top: 5rem;
+		}
+		h3 {
+			font-size: 2.5rem;
 		}
 		.p-heading {
 			font-size: 1.5rem;
 		}
-		.main {
-			&-features {
-				max-width: auto;
-				margin-left: 20%;
-			}
-			&-slider-btn {
-				width: 2rem;
-				height: 2rem;
-			}
-			.logo {
-				font-size: 1.5rem;
-				line-height: 4rem;
-				&-p {
-					display: none;
-				}
-			}
-			.phone {
-				font-size: 1.5rem;
-				margin-bottom: 0;
-				&:before {
-					width: 1.6rem;
-					height: 1.6rem;
-				}
-				&-whatsapp {
-					font-size: 1.3rem;
-					.icons {
-						width: 1.2rem;
-						height: 1.2rem;
-						margin-right: 0.5rem;
-					}
-				}
-			}
-			.button-order {
-				&-img {
-					right: -4rem;
-				}
-			}
+	}
+	.card-1 {
+		.p-heading {
+			margin: 2rem 0 3rem 0;
 		}
-		.promo {
-			padding: 5rem 0;
-			h2 {
-				margin: 3rem 0;
-			}
-			p {
-				font-size: 1.5rem;
-				margin-top: 3rem;
-			}
-			.button-order {
-				padding-left: 2rem;
-				padding-right: 2rem;
-			}
+	}
+	.portfolio {
+		&-wrapper {
+			justify-content: space-around;
 		}
-		.styles {
-			.p-heading {
-				margin-top: 4rem;
-			}
-			h2 {
-				margin-bottom: 4rem;
-			}
-			.button-transparent {
-				margin-top: 2rem;
-			}
+		&-block {
+			width: auto;
 		}
-		.card {
-			&-block {
-				padding: 2rem;
-			}
-		}
-		.portfolio {
-			&-block {
-				width: auto;
-			}
-			ul {
-				margin-top: 3rem;
-				margin-bottom: 3rem;
-			}
-			.portfolio-no {
-				font-size: 2rem;
-			}
-		}
-		.gift {
-			&-text {
-				margin: 5rem 0;
-			}
-			.p-heading {
-				margin-top: 5rem;
-			}
-		}
-		.features  {
-			padding: 7rem 0;
+	}
+	.gift {
+		background-position-x: 0;
+		background-size: auto;
+		&-features {
 			h4 {
-		 	margin-left: 11rem;
-		 }
-		 .features-img-6 {
-		 	left: -14rem;
-		 }
-		}
-		.sizes {
-			background-image: none;
-			background-color: #abd0e3;
-			padding-bottom: 5rem;
-			&-wrapper {
-				margin-top: 4rem;
-				&-wrap {
-					flex-wrap: wrap;
-				}
-			}
-			 &-block:nth-child(3) {
-				margin-bottom: 3rem;
-			}
-		}
-		.scheme {
-			h2 {
+				margin-left: 4rem;
 				margin-bottom: 4rem;
-			}
-		}
-		.card-3 {
-			padding: 0;
-		}
-		.promo-2 {
-			padding: 5rem 0;
-		}
-		.feedback {
-			padding: 5rem 0;
-			.main-next-btn {
-			    right: -1rem;
-			}
-			.main-prev-btn {
-				left: -1rem;
-			}
-		}
-		.often-questions {
-			padding: 6rem 0 4rem 0;
-			h2 {
-				margin-bottom: 3rem;
-			}
-		}
-		.calc {
-			h2 {
-				margin-bottom: 4rem;
-			}
-		select {
-				left: 0;
-				margin: 0;
-				padding: 1rem;
-			}
-			&-price {
-				margin-top: 2rem;
-			}
-		}
-		.popup {
-			&-consultation, &-design {
-				.button-order {
-					font-size: 1.3rem;
+				font-size: 1.6rem;
+				img {
+					left: -6rem;
 				}
-				.button-transparent {
-					font-size: 1.2rem;
-					&:before {
-						margin: 0;
-					}
-				}
-			}
-			&-content {
-				padding: 3rem 3rem;
-				width: 25rem;
 			}
 		}
 	}
+	.sizes {
+		&-block {
+			.sizes-hit {
+				left: 4rem;
+				bottom: -2.9rem;
+			}
+		}
+	}
+	.card-3 {
+		.card-block {
+			.p-heading {
+				margin: 2.5rem 0  3.5rem 0;
+			}
+			&-text {
+				padding-top: 0;
+			}
+		}
+	}
+	.promo-2 {
+		&-block {
+			margin: 0;
+			h2, .p-heading {
+				text-align: center;
+			}
+			.button-order {
+				margin: 4rem auto;
+			}
+		}
+		img {
+			left: -10%;
+		}
+	}
+	.feedback {
+			&-heading {
+				font-size: 2rem;
+			}
+			&-text {
+				margin: 1rem 0;
+			}
+			.button-order {
+				left: 11rem;
+			}
+	}
+	.often-questions {
+		.spirt {
+			display: none;
+		}
+	}
+	.footer {
+		.phone-whatsapp {
+			margin: 0.5rem 0;
+		}
+	}
+	.calc {
+		select {
+			position: relative;
+			left: 30%;
+		}
+		.button-transparent {
+			margin: 4rem auto;
+			width: auto;
+		}
+	}
+}
+@media  (max-width: 767px) {
+	.main {
+		&-features {
+			max-width: 30rem;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+			.card {
+		&-block {
+			padding: 5rem;
+			img, .button-order {
+				display: block;
+				margin: 0 auto;
+			}
+			&-text {
+				margin: 0;
+				h3, .p-heading {
+					text-align: center;
+				}
+			}
+		}
+	} 
+	.gift {
+		background-size: cover;
+		h3, p {
+			text-align: center;
+		}
+	}
+	.sizes {
+		&-wrapper {
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+		&-block {
+			.sizes-hit {
+				left: 6rem;
+				bottom: -2.4rem;
+			}
+		}
+	}
+	.scheme {
+		padding-bottom: 6rem;
+		&-block {
+			height: 27rem;
+		}
+	}
+	.card-3 {
+		.card-block {
+			padding: 0;
+			&-text {
+				padding: 2rem;
+			}
+		}
+		padding: 0;
+		img {
+			float: right;
+		}
+	}
+	.feedback {
+		&-slider-item {
+			padding-bottom: 0;
+		}
+		&-heading {
+			margin-top: 6rem;
+		}
+		.slick-slide {
+			img {
+				left: 0;
+				margin: 0 auto;
+			}
+		}
+		.button-order {
+			left: 50%;
+			transform: translateX(-50%);
+			width: 18rem;
+		}
+	}
+	.consultation {
+		padding: 6rem 0;
+		h2 {
+			margin-bottom: 3rem;
+		}
+		input {
+			width: 100%;
+		}
+	}
+	.footer {
+		p {
+			text-align: center;
+		}
+	}
+}
+@media (max-width: 577px) {
+	h2 {
+		font-size: 3.5rem;
+	}
+	.p-heading {
+		font-size: 1.5rem;
+	}
+	.main {
+		&-features {
+			max-width: auto;
+			margin-left: 20%;
+		}
+		&-slider-btn {
+			width: 2rem;
+			height: 2rem;
+		}
+		.logo {
+			font-size: 1.5rem;
+			line-height: 4rem;
+			&-p {
+				display: none;
+			}
+		}
+		.phone {
+			font-size: 1.5rem;
+			margin-bottom: 0;
+			&:before {
+				width: 1.6rem;
+				height: 1.6rem;
+			}
+			&-whatsapp {
+				font-size: 1.3rem;
+				.icons {
+					width: 1.2rem;
+					height: 1.2rem;
+					margin-right: 0.5rem;
+				}
+			}
+		}
+		.button-order {
+			&-img {
+				right: -4rem;
+			}
+		}
+	}
+	.promo {
+		padding: 5rem 0;
+		h2 {
+			margin: 3rem 0;
+		}
+		p {
+			font-size: 1.5rem;
+			margin-top: 3rem;
+		}
+		.button-order {
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+	}
+	.styles {
+		.p-heading {
+			margin-top: 4rem;
+		}
+		h2 {
+			margin-bottom: 4rem;
+		}
+		.button-transparent {
+			margin-top: 2rem;
+		}
+	}
+	.card {
+		&-block {
+			padding: 2rem;
+		}
+	}
+	.portfolio {
+		&-block {
+			width: auto;
+		}
+		ul {
+			margin-top: 3rem;
+			margin-bottom: 3rem;
+		}
+		.portfolio-no {
+			font-size: 2rem;
+		}
+	}
+	.gift {
+		&-text {
+			margin: 5rem 0;
+		}
+		.p-heading {
+			margin-top: 5rem;
+		}
+	}
+	.features  {
+		padding: 7rem 0;
+		h4 {
+		margin-left: 11rem;
+		}
+		.features-img-6 {
+		left: -14rem;
+		}
+	}
+	.sizes {
+		background-image: none;
+		background-color: #abd0e3;
+		padding-bottom: 5rem;
+		&-wrapper {
+			margin-top: 4rem;
+			&-wrap {
+				flex-wrap: wrap;
+			}
+		}
+			&-block:nth-child(3) {
+			margin-bottom: 3rem;
+		}
+	}
+	.scheme {
+		h2 {
+			margin-bottom: 4rem;
+		}
+	}
+	.card-3 {
+		padding: 0;
+	}
+	.promo-2 {
+		padding: 5rem 0;
+	}
+	.feedback {
+		padding: 5rem 0;
+		.main-next-btn {
+			right: -1rem;
+		}
+		.main-prev-btn {
+			left: -1rem;
+		}
+	}
+	.often-questions {
+		padding: 6rem 0 4rem 0;
+		h2 {
+			margin-bottom: 3rem;
+		}
+	}
+	.calc {
+		h2 {
+			margin-bottom: 4rem;
+		}
+	select {
+			left: 0;
+			margin: 0;
+			padding: 1rem;
+		}
+		&-price {
+			margin-top: 2rem;
+		}
+	}
+	.popup {
+		&-consultation, &-design {
+			.button-order {
+				font-size: 1.3rem;
+			}
+			.button-transparent {
+				font-size: 1.2rem;
+				&:before {
+					margin: 0;
+				}
+			}
+		}
+		&-content {
+			padding: 3rem 3rem;
+			width: 25rem;
+		}
+	}
+}
