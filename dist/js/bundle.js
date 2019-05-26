@@ -226,6 +226,53 @@ module.exports = popupConsultation;
 
 /***/ }),
 
+/***/ "./src/js/parts/popup-design.js":
+/*!**************************************!*\
+  !*** ./src/js/parts/popup-design.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var popupDesign = function popupDesign() {
+  var btnDesign = document.querySelectorAll('.button-design'),
+      popupDesign = document.querySelector('.popup-design'),
+      popupClose = document.querySelectorAll('.popup-close'),
+      popupOverlay = document.querySelector('.popup-overlay');
+  btnDesign.forEach(function (elem) {
+    elem.addEventListener('click', function () {
+      popupDesign.style.display = 'block';
+      popupOverlay.style.display = 'block';
+    });
+  });
+  popupClose.forEach(function (elem) {
+    elem.addEventListener('click', function () {
+      popupDesign.style.display = 'none';
+      popupOverlay.style.display = 'none';
+    });
+  });
+  popupOverlay.addEventListener('click', function () {
+    popupDesign.style.display = 'none';
+    popupOverlay.style.display = 'none';
+  });
+};
+
+module.exports = popupDesign;
+
+/***/ }),
+
+/***/ "./src/js/parts/popup-gift.js":
+/*!************************************!*\
+  !*** ./src/js/parts/popup-gift.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var popupGift = function popupGift() {};
+
+module.exports = popupGift;
+
+/***/ }),
+
 /***/ "./src/js/parts/sendform.js":
 /*!**********************************!*\
   !*** ./src/js/parts/sendform.js ***!
@@ -326,8 +373,8 @@ window.addEventListener('DOMContentLoaded', function () {
       menu = __webpack_require__(/*! ./parts/menu */ "./src/js/parts/menu.js"),
       tabs = __webpack_require__(/*! ./parts/tabs.js */ "./src/js/parts/tabs.js"),
       popupConsultation = __webpack_require__(/*! ./parts/popup-consultation.js */ "./src/js/parts/popup-consultation.js"),
-      popupDesign = __webpack_require__(/*! ./parts/popup-consultation.js */ "./src/js/parts/popup-consultation.js"),
-      popupGift = __webpack_require__(/*! ./parts/popup-consultation.js */ "./src/js/parts/popup-consultation.js"),
+      popupDesign = __webpack_require__(/*! ./parts/popup-design.js */ "./src/js/parts/popup-design.js"),
+      popupGift = __webpack_require__(/*! ./parts/popup-gift.js */ "./src/js/parts/popup-gift.js"),
       sendform = __webpack_require__(/*! ./parts/sendform.js */ "./src/js/parts/sendform.js"),
       sliderBottom = __webpack_require__(/*! ./parts/slider-bottom.js */ "./src/js/parts/slider-bottom.js"),
       calc = __webpack_require__(/*! ./parts/calc.js */ "./src/js/parts/calc.js");

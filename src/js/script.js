@@ -9,8 +9,8 @@ window.addEventListener('DOMContentLoaded', function() {
         menu = require('./parts/menu'),
         tabs = require('./parts/tabs.js'),
         popupConsultation = require('./parts/popup-consultation.js'),
-        popupDesign = require('./parts/popup-consultation.js'),
-        popupGift = require('./parts/popup-consultation.js'),
+        popupDesign = require('./parts/popup-design.js'),
+        popupGift = require('./parts/popup-gift.js'),
         sendform = require('./parts/sendform.js'),
         sliderBottom = require('./parts/slider-bottom.js'),
         calc = require('./parts/calc.js');
