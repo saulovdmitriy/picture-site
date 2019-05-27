@@ -340,19 +340,25 @@ var sliderTop = function sliderTop() {
       sliderItem[i].style.display = 'none';
     }
 
+    function slideShow(index) {
+      sliderItem[index].style.display = 'block';
+      sliderItem[index].classList.add('fadeInDown', 'animated');
+    }
+
+    function slideHide(index) {
+      sliderItem[index].style.display = 'none';
+      sliderItem[index].classList.remove('fadeInDown', 'animated');
+    }
+
     if (n == 0) {
-      sliderItem[n].style.display = 'block';
-      sliderItem[n].classList.add('fadeInDown', 'animated');
-      sliderItem[n + 1].style.display = 'none';
-      sliderItem[n + 1].classList.remove('fadeInDown', 'animated');
+      slideShow(n);
+      slideHide(n + 1);
       slideIndex += 1;
     }
 
     if (n == 1) {
-      sliderItem[n - 1].style.display = 'none';
-      sliderItem[n - 1].classList.remove('fadeInDown', 'animated');
-      sliderItem[n].style.display = 'block';
-      sliderItem[n].classList.add('fadeInDown', 'animated');
+      slideHide(n - 1);
+      slideShow(n);
       slideIndex -= 1;
     }
   }
