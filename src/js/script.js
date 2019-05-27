@@ -13,7 +13,8 @@ window.addEventListener('DOMContentLoaded', function() {
         popupGift = require('./parts/popup-gift.js'),
         sendform = require('./parts/sendform.js'),
         sliderBottom = require('./parts/slider-bottom.js'),
-        calc = require('./parts/calc.js');
+        calc = require('./parts/calc.js'),
+        picSize = require('./parts/picsize.js');
 
     sliderTop();
     menu();
@@ -24,4 +25,5 @@ window.addEventListener('DOMContentLoaded', function() {
     sendform();
     sliderBottom();
     calc();
+    picSize();
 });

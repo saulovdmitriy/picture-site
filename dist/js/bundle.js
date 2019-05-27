@@ -192,6 +192,48 @@ module.exports = menu;
 
 /***/ }),
 
+/***/ "./src/js/parts/picsize.js":
+/*!*********************************!*\
+  !*** ./src/js/parts/picsize.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var picSize = function picSize() {
+  var imgSizeOne = document.querySelector('.size-1'),
+      imgSizeTwo = document.querySelector('.size-2'),
+      imgSizeThree = document.querySelector('.size-3'),
+      imgSizeFore = document.querySelector('.size-4');
+  imgSizeOne.addEventListener('mouseover', function () {
+    imgSizeOne.src = 'src/img/sizes-1-1.png';
+  });
+  imgSizeTwo.addEventListener('mouseover', function () {
+    imgSizeTwo.src = 'src/img/sizes-2-1.png';
+  });
+  imgSizeThree.addEventListener('mouseover', function () {
+    imgSizeThree.src = 'src/img/sizes-3-1.png';
+  });
+  imgSizeFore.addEventListener('mouseover', function () {
+    imgSizeFore.src = 'src/img/sizes-4-1.png';
+  });
+  imgSizeOne.addEventListener('mouseout', function () {
+    imgSizeOne.src = 'src/img/sizes-1.png';
+  });
+  imgSizeTwo.addEventListener('mouseout', function () {
+    imgSizeTwo.src = 'src/img/sizes-2.png';
+  });
+  imgSizeThree.addEventListener('mouseout', function () {
+    imgSizeThree.src = 'src/img/sizes-3.png';
+  });
+  imgSizeFore.addEventListener('mouseout', function () {
+    imgSizeFore.src = 'src/img/sizes-4.png';
+  });
+};
+
+module.exports = picSize;
+
+/***/ }),
+
 /***/ "./src/js/parts/popup-consultation.js":
 /*!********************************************!*\
   !*** ./src/js/parts/popup-consultation.js ***!
@@ -407,7 +449,8 @@ window.addEventListener('DOMContentLoaded', function () {
       popupGift = __webpack_require__(/*! ./parts/popup-gift.js */ "./src/js/parts/popup-gift.js"),
       sendform = __webpack_require__(/*! ./parts/sendform.js */ "./src/js/parts/sendform.js"),
       sliderBottom = __webpack_require__(/*! ./parts/slider-bottom.js */ "./src/js/parts/slider-bottom.js"),
-      calc = __webpack_require__(/*! ./parts/calc.js */ "./src/js/parts/calc.js");
+      calc = __webpack_require__(/*! ./parts/calc.js */ "./src/js/parts/calc.js"),
+      picSize = __webpack_require__(/*! ./parts/picsize.js */ "./src/js/parts/picsize.js");
 
   sliderTop();
   menu();
@@ -418,6 +461,7 @@ window.addEventListener('DOMContentLoaded', function () {
   sendform();
   sliderBottom();
   calc();
+  picSize();
 });
 
 /***/ })
