@@ -391,7 +391,8 @@ var popupGift = function popupGift() {
   var btnGift = document.querySelector('.fixed-gift'),
       popupGift = document.querySelector('.popup-gift'),
       popupClose = document.querySelectorAll('.popup-close'),
-      popupOverlay = document.querySelector('.popup-overlay');
+      popupOverlay = document.querySelector('.popup-overlay'),
+      btns = document.getElementsByTagName('button');
   btnGift.addEventListener('click', function () {
     popupGift.style.display = 'block';
     popupOverlay.style.display = 'block';
@@ -407,6 +408,32 @@ var popupGift = function popupGift() {
     popupGift.style.display = 'none';
     popupOverlay.style.display = 'none';
   });
+
+  var btnClick = function btnClick() {
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function (event) {
+        var target = event.target;
+
+        if (target == false) {
+          giftShow();
+        }
+      });
+    }
+  };
+
+  btnClick();
+
+  function giftShow() {
+    window.onscroll = function () {
+      if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+        popupGift.style.display = 'block';
+        popupOverlay.style.display = 'block';
+        btnGift.style.display = 'none';
+      }
+    };
+  }
+
+  giftShow();
 };
 
 module.exports = popupGift;
