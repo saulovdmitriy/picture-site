@@ -15,7 +15,8 @@ window.addEventListener('DOMContentLoaded', function() {
         sendform = require('./parts/sendform.js'),
         sliderBottom = require('./parts/slider-bottom.js'),
         calc = require('./parts/calc.js'),
-        picSize = require('./parts/picsize.js');
+        picSize = require('./parts/picsize.js'),
+        accordeon = require('./parts/accordeon.js');
 
     sliderTop();
     loadBlocks();
@@ -28,4 +29,5 @@ window.addEventListener('DOMContentLoaded', function() {
     sliderBottom();
     calc();
     picSize();
+    accordeon();
 });

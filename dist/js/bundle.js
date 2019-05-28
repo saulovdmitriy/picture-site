@@ -166,6 +166,55 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./src/js/parts/accordeon.js":
+/*!***********************************!*\
+  !*** ./src/js/parts/accordeon.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var accordeon = function accordeon() {
+  var accBlock = document.querySelectorAll('.accordion-block'),
+      accHeading = document.querySelectorAll('.accordion-heading'),
+      accIndex = 1;
+
+  function accHide() {
+    accBlock.forEach(function (elem) {
+      elem.style.display = 'none';
+      elem.classList.remove('ui-accordion-content-active', 'fadeInUp', 'animated');
+    });
+  }
+
+  accHide();
+
+  function accShow(n) {
+    accHide();
+    accBlock[n].style.display = 'block';
+    accBlock[n].classList.add('ui-accordion-content-active', 'fadeInUp', 'animated');
+  }
+
+  function changeHeading() {
+    accHeading.forEach(function (elem) {
+      if (!elem.classList.contains('ui-accordion-header-active')) {} else {
+        elem.classList.remove('ui-accordion-header-active');
+      }
+    });
+  }
+
+  accHeading.forEach(function (elem, i) {
+    elem.addEventListener('click', function () {
+      accIndex = i;
+      accShow(accIndex);
+      changeHeading();
+      elem.classList.add('ui-accordion-header-active');
+    });
+  });
+};
+
+module.exports = accordeon;
+
+/***/ }),
+
 /***/ "./src/js/parts/calc.js":
 /*!******************************!*\
   !*** ./src/js/parts/calc.js ***!
@@ -511,7 +560,8 @@ window.addEventListener('DOMContentLoaded', function () {
       sendform = __webpack_require__(/*! ./parts/sendform.js */ "./src/js/parts/sendform.js"),
       sliderBottom = __webpack_require__(/*! ./parts/slider-bottom.js */ "./src/js/parts/slider-bottom.js"),
       calc = __webpack_require__(/*! ./parts/calc.js */ "./src/js/parts/calc.js"),
-      picSize = __webpack_require__(/*! ./parts/picsize.js */ "./src/js/parts/picsize.js");
+      picSize = __webpack_require__(/*! ./parts/picsize.js */ "./src/js/parts/picsize.js"),
+      accordeon = __webpack_require__(/*! ./parts/accordeon.js */ "./src/js/parts/accordeon.js");
 
   sliderTop();
   loadBlocks();
@@ -524,6 +574,7 @@ window.addEventListener('DOMContentLoaded', function () {
   sliderBottom();
   calc();
   picSize();
+  accordeon();
 });
 
 /***/ })

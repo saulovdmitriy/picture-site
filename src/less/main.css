@@ -815,7 +815,6 @@ h4 {
 .promo-2 img {
   max-width: 100%;
   position: relative;
-  right: -10rem;
 }
 .feedback {
   background-color: #f7e7e6;
@@ -886,7 +885,8 @@ h4 {
   border-bottom: 2px dotted #333;
 }
 .often-questions .accordion-block {
-  margin-top: 6rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   background-color: #f7e7e6;
   padding: 3rem 4rem;
 }
@@ -900,7 +900,7 @@ h4 {
   border-bottom: 3rem solid #f7e7e6;
 }
 .often-questions .ui-accordion-header-active {
-  cursor: auto;
+  cursor: pointer;
   color: #c51abb;
   margin-bottom: 0;
 }
@@ -912,8 +912,8 @@ h4 {
 }
 .often-questions .brushes {
   position: absolute;
-  bottom: 0;
-  right: 5%;
+  bottom: -13.4rem;
+  right: 0%;
 }
 .often-questions .spirt {
   position: absolute;
