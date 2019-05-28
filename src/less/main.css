@@ -106,6 +106,10 @@ h4 {
   right: 2rem;
   cursor: pointer;
 }
+.header {
+  position: relative;
+  z-index: 999;
+}
 .header .container {
   padding: 0;
 }
@@ -115,7 +119,7 @@ h4 {
   border: none;
   padding: 2rem 1.5rem;
   color: #ffffff;
-  cursor: auto;
+  cursor: pointer;
   font-family: 'Circe Bold', sans-serif;
   font-size: 1.5rem;
 }
@@ -205,10 +209,16 @@ h4 {
   color: inherit;
   text-decoration: none;
 }
+.header .active {
+  display: block;
+}
 .main {
   background-color: #f7e7e6;
   padding-top: 3rem;
   /* Making it beautiful */
+}
+.main-slider {
+  overflow: hidden;
 }
 .main .file_uplo {
   position: relative;
@@ -1448,6 +1458,12 @@ h4 {
   }
 }
 @media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
+  .main-slider-item img {
+    width: 100%;
+  }
   .main-features {
     max-width: 30rem;
     margin-left: auto;
@@ -1500,6 +1516,10 @@ h4 {
   }
   .card-3 img {
     float: right;
+  }
+  .feedback {
+    overflow: hidden;
+    padding: 7.5rem 0;
   }
   .feedback-slider-item {
     padding-bottom: 0;
@@ -1645,7 +1665,8 @@ h4 {
     padding: 5rem 0;
   }
   .feedback {
-    padding: 5rem 0;
+    overflow: hidden;
+    padding: 7.5rem 0;
   }
   .feedback .main-next-btn {
     right: -1rem;

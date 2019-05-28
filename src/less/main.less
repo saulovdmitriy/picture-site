@@ -141,6 +141,8 @@ h1, h2, h3, h4 {
 	cursor: pointer;
 }
 .header {
+	position: relative;
+	z-index: 999;
 	.container {
 		padding: 0;
 	}
@@ -150,7 +152,7 @@ h1, h2, h3, h4 {
 		border: none;
 		padding: 2rem 1.5rem;
 		color: @white;
-		cursor: auto;
+		cursor: pointer;
 		.CirceBold();
 		font-size: 1.5rem;
 		img {
@@ -182,28 +184,29 @@ h1, h2, h3, h4 {
 				}
 			}
 		}
-	 li {
-	 	display: inline-block;
-	 	padding: 2rem 1.5rem;
-	 	padding-right: 3rem;
-	 	font-size: 1.5rem;
-	 	a {
-	 		color: inherit;
-	 		&:after {
-	 			content:'';
-	 			background-image: url("../img/down-arrow.svg");
-	 			margin-left: 0.7rem;
-	 			width: 1.2rem;
-	 			height: 1rem;
-	 			background-size: 100%;
-	 			display: inline-block;
-	 		}
-	 		&:hover {
-	 			text-decoration: none;
-	 			color: inherit;
-	 		}
-	 	}
-	 }
+		
+		li {
+			display: inline-block;
+			padding: 2rem 1.5rem;
+			padding-right: 3rem;
+			font-size: 1.5rem;
+			a {
+				color: inherit;
+				&:after {
+					content:'';
+					background-image: url("../img/down-arrow.svg");
+					margin-left: 0.7rem;
+					width: 1.2rem;
+					height: 1rem;
+					background-size: 100%;
+					display: inline-block;
+				}
+				&:hover {
+					text-decoration: none;
+					color: inherit;
+				}
+			}
+		}
 	}
 	.button-wrap {
 		width: 100%;
@@ -242,10 +245,16 @@ h1, h2, h3, h4 {
 			}
 		}
 	}
+	.active {
+		display: block;
+	}
 }
 .main {
 	background-color: @pink-bg;
 	padding-top: 3rem;
+	&-slider {
+		overflow: hidden;
+	}
 	.file_uplo {
 	    position: relative;
 	    overflow: hidden;
@@ -279,7 +288,7 @@ h1, h2, h3, h4 {
 
 	.file_uplo > button {
 	    transition: background 0.2s;
-	    	border-radius: 50px;
+	    border-radius: 50px;
 	    overflow: hidden;
 	    white-space: nowrap;
 	    text-overflow: ellipsis;
@@ -299,7 +308,7 @@ h1, h2, h3, h4 {
 	    	right: 2px;
 	    	background-size: 100%;
 	    }
-	   }
+	}
 	.logo {
 		font-size: 2.5rem;
 		.CirceExtraBold();
@@ -1568,14 +1577,22 @@ h1, h2, h3, h4 {
 	}
 }
 @media  (max-width: 767px) {
+	body {
+		overflow-x: hidden;
+	}
 	.main {
+		&-slider-item {
+			img {
+				width: 100%;
+			}
+		}
 		&-features {
 			max-width: 30rem;
 			margin-left: auto;
 			margin-right: auto;
 		}
 	}
-			.card {
+	.card {
 		&-block {
 			padding: 5rem;
 			img, .button-order {
@@ -1627,6 +1644,8 @@ h1, h2, h3, h4 {
 		}
 	}
 	.feedback {
+		overflow: hidden;
+		padding: 7.5rem 0;
 		&-slider-item {
 			padding-bottom: 0;
 		}
@@ -1790,7 +1809,8 @@ h1, h2, h3, h4 {
 		padding: 5rem 0;
 	}
 	.feedback {
-		padding: 5rem 0;
+		overflow: hidden;
+		padding: 7.5rem 0;
 		.main-next-btn {
 			right: -1rem;
 		}
