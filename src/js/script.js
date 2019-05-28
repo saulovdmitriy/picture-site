@@ -6,6 +6,7 @@ window.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
     let sliderTop = require('./parts/slider-top.js'),
+        loadBlocks = require('./parts/loadblocks.js'),
         menu = require('./parts/menu'),
         tabs = require('./parts/tabs.js'),
         popupConsultation = require('./parts/popup-consultation.js'),
@@ -17,6 +18,7 @@ window.addEventListener('DOMContentLoaded', function() {
         picSize = require('./parts/picsize.js');
 
     sliderTop();
+    loadBlocks();
     menu();
     tabs();
     popupConsultation();

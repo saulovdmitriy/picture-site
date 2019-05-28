@@ -179,6 +179,31 @@ module.exports = calc;
 
 /***/ }),
 
+/***/ "./src/js/parts/loadblocks.js":
+/*!************************************!*\
+  !*** ./src/js/parts/loadblocks.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var loadBlocks = function loadBlocks() {
+  var btnStyles = document.querySelector('.button-styles'),
+      blocks = styles.querySelectorAll('.style-block__wrap');
+  btnStyles.addEventListener('click', function () {
+    blocks.forEach(function (elem) {
+      if (elem.classList.contains('styles-2')) {
+        elem.classList.remove('hidden-lg', 'hidden-md', 'hidden-sm', 'hidden-xs');
+        elem.classList.add('col-sm-3', 'col-sm-offset-0', 'col-xs-10', 'col-xs-offset-1', 'fadeInUp', 'animated');
+      }
+    });
+    btnStyles.style.display = 'none';
+  });
+};
+
+module.exports = loadBlocks;
+
+/***/ }),
+
 /***/ "./src/js/parts/menu.js":
 /*!******************************!*\
   !*** ./src/js/parts/menu.js ***!
@@ -477,6 +502,7 @@ window.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
   var sliderTop = __webpack_require__(/*! ./parts/slider-top.js */ "./src/js/parts/slider-top.js"),
+      loadBlocks = __webpack_require__(/*! ./parts/loadblocks.js */ "./src/js/parts/loadblocks.js"),
       menu = __webpack_require__(/*! ./parts/menu */ "./src/js/parts/menu.js"),
       tabs = __webpack_require__(/*! ./parts/tabs.js */ "./src/js/parts/tabs.js"),
       popupConsultation = __webpack_require__(/*! ./parts/popup-consultation.js */ "./src/js/parts/popup-consultation.js"),
@@ -488,6 +514,7 @@ window.addEventListener('DOMContentLoaded', function () {
       picSize = __webpack_require__(/*! ./parts/picsize.js */ "./src/js/parts/picsize.js");
 
   sliderTop();
+  loadBlocks();
   menu();
   tabs();
   popupConsultation();

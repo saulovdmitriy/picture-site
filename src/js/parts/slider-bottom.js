@@ -6,7 +6,6 @@ const sliderBottom = () => {
         slideIndex = 1;
 
 
-
     showSlides(slideIndex);
 
     function showSlides(n) {
