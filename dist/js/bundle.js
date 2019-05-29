@@ -1916,6 +1916,10 @@ var sendform = function sendform() {
       if (!/^\+?[()\d \-]*$/.test(myPhone[i].value)) {
         this.value = this.value.slice(0, -1);
       }
+
+      if (myPhone[i].value.length > 11) {
+        this.value = this.value.slice(0, -1);
+      }
     });
   };
 
