@@ -1638,36 +1638,29 @@ var calc = function calc() {
   var valueM = 0;
   var valueOpt = 0;
   var total = 0;
-  selectSize.addEventListener('change', function () {
+  selectSize.addEventListener('change', calcWork);
+  selectMaterial.addEventListener('change', calcWork);
+  selectOptions.addEventListener('change', calcWork);
+
+  function calcWork() {
     valueS = +selectSize.options[selectSize.selectedIndex].value;
-
-    if (valueS > 0 && valueM > 0) {
-      total = valueS + valueM + valueOpt;
-      totalValue.innerHTML = total;
-    } else {
-      totalValue.innerHTML = 0;
-    }
-  });
-  selectMaterial.addEventListener('change', function () {
     valueM = +selectMaterial.options[selectMaterial.selectedIndex].value;
-
-    if (valueS > 0 && valueM > 0) {
-      total = valueS + valueM + valueOpt;
-      totalValue.innerHTML = total;
-    } else {
-      totalValue.innerHTML = 0;
-    }
-  });
-  selectOptions.addEventListener('change', function () {
     valueOpt = +selectOptions.options[selectOptions.selectedIndex].value;
 
     if (valueS > 0 && valueM > 0) {
       total = valueS + valueM + valueOpt;
+
+      if (promocode.value == 'IWANTPOPART') {
+        total *= 0.7;
+      }
+
       totalValue.innerHTML = total;
     } else {
       totalValue.innerHTML = 0;
     }
-  });
+  }
+
+  promocode.addEventListener('input', calcWork);
 };
 
 module.exports = calc;
