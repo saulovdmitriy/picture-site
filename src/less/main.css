@@ -968,6 +968,11 @@ h4 {
 .consultation .button-order {
   margin-top: 1rem;
 }
+.consultation .status__message {
+  display: block;
+  text-align: center;
+  margin: 1rem 0 0;
+}
 .footer {
   padding: 4rem 0 3rem 0;
 }
@@ -1065,6 +1070,11 @@ h4 {
   padding: 4rem 6rem 5rem 6rem;
   z-index: 25;
 }
+.popup .status__message {
+  display: block;
+  text-align: center;
+  margin: 1rem 0 0;
+}
 .popup-gift {
   display: none;
 }
@@ -1109,7 +1119,7 @@ h4 {
 .popup-design input[name="name"] {
   margin-top: 2rem;
 }
-.popup-design .file_uploa {
+.popup-design .file_upload {
   position: relative;
   overflow: hidden;
   font-size: 1em;
@@ -1118,17 +1128,17 @@ h4 {
   /* example */
   line-height: 2em /* the same as height */;
 }
-.popup-design .file_uploa > button {
+.popup-design .file_upload > button {
   float: right;
   width: 8em;
   /* example */
   height: 100%;
 }
-.popup-design .file_uploa > div {
+.popup-design .file_upload > div {
   padding-left: 1em;
   /* example */
 }
-.popup-design .file_uploa input[type=file] {
+.popup-design .file_upload input[type=file] {
   position: absolute;
   left: 0;
   top: 0;
@@ -1142,7 +1152,7 @@ h4 {
   opacity: 0;
   cursor: pointer;
 }
-.popup-design .file_uploa > button {
+.popup-design .file_upload > button {
   transition: background 0.2s;
   border-radius: 50px;
   overflow: hidden;
@@ -1154,7 +1164,7 @@ h4 {
   border: 2px dashed #c51abb;
   padding: 1.5rem;
 }
-.popup-design .file_uploa > button:before {
+.popup-design .file_upload > button:before {
   content: '';
   background: url("../img/camera.svg") no-repeat center;
   width: 1.6rem;
@@ -1193,6 +1203,11 @@ h4 {
 }
 .popup-design h4 {
   margin-bottom: 3.5rem;
+}
+.popup-design .status__message {
+  display: block;
+  text-align: center;
+  margin: 1rem 0 0;
 }
 .popup-close {
   position: absolute;
