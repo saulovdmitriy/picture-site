@@ -735,12 +735,15 @@ h4 {
   position: relative;
 }
 .sizes-block img {
+  position: relative;
   max-width: 100%;
+  z-index: 2;
 }
 .sizes-block p {
   position: absolute;
   text-align: center;
   width: 100%;
+  z-index: 3;
 }
 .sizes-block .size {
   top: 3rem;
