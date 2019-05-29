@@ -20,18 +20,24 @@ const tabs = () => {
                 event.target.classList.add('active');
 
                 portfolioBlock.forEach(function(elem) {
+                    noPortfolio.style.display = 'none';
                     elem.style.display = 'block';
                     elem.classList.remove('fadeIn', 'animated');
 
                     if (!(elem.classList.contains(elementClass))) {
                         elem.style.display = 'none';
-                        noPortfolio.style.display = 'block';
-                    
                     } else {
                         elem.classList.add('fadeIn', 'animated');
-                        noPortfolio.style.display = 'none';
                     }
                 });
+            }
+
+            if (target && event.target.classList.contains('grandmother')) {
+                noPortfolio.style.display = 'block';
+            } else if (target && event.target.classList.contains('granddad')) {
+                noPortfolio.style.display = 'block';
+            } else {
+                noPortfolio.style.display = 'none';
             }
         }
 
