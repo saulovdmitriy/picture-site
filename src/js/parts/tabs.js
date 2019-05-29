@@ -10,7 +10,7 @@ const tabs = () => {
     function filterClass(event) {
         let target = event.target;
         
-        function classFilter(elementClass, noPort) {
+        function classFilter(elementClass) {
             if (target && event.target.classList.contains(elementClass)) {
 
                 menuItem.forEach(function(item) {
@@ -25,8 +25,10 @@ const tabs = () => {
                     if (!(elem.classList.contains(elementClass))) {
                         elem.style.display = 'none';
                         noPortfolio.style.display = 'block';
+                    
                     } else {
                         elem.classList.add('fadeIn', 'animated');
+                        noPortfolio.style.display = 'none';
                     }
                 });
             }
@@ -38,7 +40,7 @@ const tabs = () => {
         classFilter('girl');
         classFilter('guy');
         classFilter('grandmother');
-        classFilter('granddad');    
+        classFilter('granddad');  
     }
 };
 

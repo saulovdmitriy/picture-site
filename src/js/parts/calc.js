@@ -12,7 +12,7 @@ const calc = () => {
         optionAdd = options.querySelectorAll('option'),
 
         promocode = document.querySelector('.promocode'),
-        calcPrice = document.querySelector('.calc-price');
+        totalValue = document.querySelector('.calc-price');
 
         optionSize[0].value = 0;
         optionSize[1].value = 500;
@@ -31,61 +31,45 @@ const calc = () => {
 
         let valueS = 0;
         let valueM = 0;
-
-        // selectSize.addEventListener('change', function() {
-        //     // calcPrice.innerHTML = optionSize[1].value;
-
-        //     optionSize.forEach(function(elem) {
-        //         elem.addEventListener('click', function() {
-        //             valueS = elem.value;
-        //             calcPrice.innerHTML = valueS;
-        //         });
-        //     });
-        //     console.log(valueS);
-            
-        // });
-        // console.log(valueS);
+        let valueOpt = 0;
+        let total = 0;
 
 
-        selectSize.addEventListener('change', function() {
+    selectSize.addEventListener('change', function() {
 
-            for (let i = 0; i < selectSize.options.length; ++i) {
-                selectSize.options[i].foo = function() {
-                    valueS = this.value;
-                    console.log(valueS);
-                    return valueS;
-                };
-            }
+        valueS = +selectSize.options[selectSize.selectedIndex].value;
 
-            selectSize.onchange = function() {
-                this.options[this.selectedIndex].foo();
-            };
-            
-        });
-
-        selectMaterial.addEventListener('change', function() {
-
-            for (let i = 0; i < selectMaterial.options.length; ++i) {
-                selectMaterial.options[i].foo = function() {
-                    valueM = this.value;
-                    console.log(valueM);
-                    return valueM;
-                };
-            }
-
-            selectMaterial.onchange = function() {
-                this.options[this.selectedIndex].foo();
-            };
-            
-        });
-
-        // calcPrice.addEventListener('change', calcSum);
-
-        function calcSum() {
-            calcPrice.innerText = valueS + valueM;
+        if (valueS > 0 && valueM > 0) {
+            total = valueS + valueM + valueOpt;
+            totalValue.innerHTML = total;
+        } else {
+            totalValue.innerHTML = 0;
         }
-        calcSum();
+    });
 
+    selectMaterial.addEventListener('change', function() {
+
+        valueM = +selectMaterial.options[selectMaterial.selectedIndex].value;
+
+        if (valueS > 0 && valueM > 0) {
+            total = valueS + valueM + valueOpt;
+            totalValue.innerHTML = total;
+        } else {
+            totalValue.innerHTML = 0;
+        }
+    });
+
+    selectOptions.addEventListener('change', function() {
+
+        valueOpt = +selectOptions.options[selectOptions.selectedIndex].value;
+
+        if (valueS > 0 && valueM > 0) {
+            total = valueS + valueM + valueOpt;
+            totalValue.innerHTML = total;
+        } else {
+            totalValue.innerHTML = 0;
+        }
+    });
         
         
 

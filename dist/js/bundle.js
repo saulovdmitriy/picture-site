@@ -1621,7 +1621,7 @@ var calc = function calc() {
       optionMaterial = material.querySelectorAll('option'),
       optionAdd = options.querySelectorAll('option'),
       promocode = document.querySelector('.promocode'),
-      calcPrice = document.querySelector('.calc-price');
+      totalValue = document.querySelector('.calc-price');
   optionSize[0].value = 0;
   optionSize[1].value = 500;
   optionSize[2].value = 1000;
@@ -1635,50 +1635,39 @@ var calc = function calc() {
   optionAdd[1].value = 500;
   optionAdd[2].value = 1000;
   var valueS = 0;
-  var valueM = 0; // selectSize.addEventListener('change', function() {
-  //     // calcPrice.innerHTML = optionSize[1].value;
-  //     optionSize.forEach(function(elem) {
-  //         elem.addEventListener('click', function() {
-  //             valueS = elem.value;
-  //             calcPrice.innerHTML = valueS;
-  //         });
-  //     });
-  //     console.log(valueS);
-  // });
-  // console.log(valueS);
-
+  var valueM = 0;
+  var valueOpt = 0;
+  var total = 0;
   selectSize.addEventListener('change', function () {
-    for (var i = 0; i < selectSize.options.length; ++i) {
-      selectSize.options[i].foo = function () {
-        valueS = this.value;
-        console.log(valueS);
-        return valueS;
-      };
-    }
+    valueS = +selectSize.options[selectSize.selectedIndex].value;
 
-    selectSize.onchange = function () {
-      this.options[this.selectedIndex].foo();
-    };
+    if (valueS > 0 && valueM > 0) {
+      total = valueS + valueM + valueOpt;
+      totalValue.innerHTML = total;
+    } else {
+      totalValue.innerHTML = 0;
+    }
   });
   selectMaterial.addEventListener('change', function () {
-    for (var i = 0; i < selectMaterial.options.length; ++i) {
-      selectMaterial.options[i].foo = function () {
-        valueM = this.value;
-        console.log(valueM);
-        return valueM;
-      };
+    valueM = +selectMaterial.options[selectMaterial.selectedIndex].value;
+
+    if (valueS > 0 && valueM > 0) {
+      total = valueS + valueM + valueOpt;
+      totalValue.innerHTML = total;
+    } else {
+      totalValue.innerHTML = 0;
     }
+  });
+  selectOptions.addEventListener('change', function () {
+    valueOpt = +selectOptions.options[selectOptions.selectedIndex].value;
 
-    selectMaterial.onchange = function () {
-      this.options[this.selectedIndex].foo();
-    };
-  }); // calcPrice.addEventListener('change', calcSum);
-
-  function calcSum() {
-    calcPrice.innerText = valueS + valueM;
-  }
-
-  calcSum();
+    if (valueS > 0 && valueM > 0) {
+      total = valueS + valueM + valueOpt;
+      totalValue.innerHTML = total;
+    } else {
+      totalValue.innerHTML = 0;
+    }
+  });
 };
 
 module.exports = calc;
@@ -1856,7 +1845,7 @@ var popupGift = function popupGift() {
       popupGift = document.querySelector('.popup-gift'),
       popupClose = document.querySelectorAll('.popup-close'),
       popupOverlay = document.querySelector('.popup-overlay'),
-      btns = document.getElementsByTagName('button');
+      btns = document.querySelectorAll('button');
   btnGift.addEventListener('click', function () {
     popupGift.style.display = 'block';
     popupOverlay.style.display = 'block';
@@ -1872,32 +1861,39 @@ var popupGift = function popupGift() {
     popupGift.style.display = 'none';
     popupOverlay.style.display = 'none';
   });
-
-  var btnClick = function btnClick() {
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener('click', function (event) {
-        var target = event.target;
-
-        if (target == false) {
-          giftShow();
-        }
-      });
+  temp = 0;
+  btns.forEach(function (item) {
+    item.addEventListener('click', function () {
+      temp++;
+    });
+  });
+  window.addEventListener('scroll', function () {
+    if (temp == 0 && window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+      popupGift.style.display = 'block';
+      popupOverlay.style.display = 'block';
+      btnGift.style.display = 'none';
     }
-  };
-
-  btnClick();
-
-  function giftShow() {
-    window.onscroll = function () {
-      if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-        popupGift.style.display = 'block';
-        popupOverlay.style.display = 'block';
-        btnGift.style.display = 'none';
-      }
-    };
-  }
-
-  giftShow();
+  }); // let btnClick = function() {
+  //     for (let i = 0; i < btns.length; i++) {
+  //         btns[i].addEventListener('click', function(event) {
+  //             let target = event.target;
+  //             if (target == false) {
+  //                 giftShow();
+  //             }
+  //         });
+  //     }
+  // }
+  // btnClick();
+  // function giftShow() {
+  //     window.onscroll = function() {   
+  //         if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+  //             popupGift.style.display = 'block';
+  //             popupOverlay.style.display = 'block';
+  //             btnGift.style.display = 'none';
+  //         }
+  //     };
+  // }
+  // giftShow();
 };
 
 module.exports = popupGift;
@@ -2098,7 +2094,7 @@ var tabs = function tabs() {
   function filterClass(event) {
     var target = event.target;
 
-    function classFilter(elementClass, noPort) {
+    function classFilter(elementClass) {
       if (target && event.target.classList.contains(elementClass)) {
         menuItem.forEach(function (item) {
           item.classList.remove('active');
@@ -2113,6 +2109,7 @@ var tabs = function tabs() {
             noPortfolio.style.display = 'block';
           } else {
             elem.classList.add('fadeIn', 'animated');
+            noPortfolio.style.display = 'none';
           }
         });
       }
