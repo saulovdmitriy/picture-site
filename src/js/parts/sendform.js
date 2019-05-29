@@ -1,12 +1,11 @@
 const sendform = () => {
     let message = {
         loading: `<img src="src/img/ajax-loader.gif" class="status__img">`,
-        success: `<span class="status__message">В ближайшее время мы с вами свяжемся</span>`,
-        failure: `<img src="src/img/warning.png" class="status__img"><span class="status__message">Введите данные снова</span>`
+        success: `<span class="status__message">Благодарим за заявку! <br> В ближайшее время мы с вами свяжемся</span>`,
+        failure: `<span class="status__message">Произошла ошибка! Введите данные снова</span>`
     };
 
-    let statusMessage = document.createElement('div'),
-        myPhone = document.querySelectorAll('input[type="tel"]');
+    let myPhone = document.querySelectorAll('input[type="tel"]');
 
     for (let i = 0; i < myPhone.length; i++) {
         myPhone[i].addEventListener('input',  function() {
@@ -22,14 +21,23 @@ const sendform = () => {
         });
     }
 
-    statusMessage.classList.add('status');
+    let inputValid = document.querySelectorAll('.inputValid');
+
+    for (let i = 0; i < inputValid.length; i++) {
+        inputValid[i].addEventListener('input', function() {
+
+            if (!(/^[?!,.а-яА-ЯёЁ0-9\s]+$/.test(inputValid[i].value))) {
+                this.value = this.value.slice(0, -1);
+            }
+
+        });
+    }
 
     document.body.addEventListener('submit', (event) => {
         let target = event.target;
         event.preventDefault();
         
         let input = target.getElementsByTagName('input');
-        target.appendChild(statusMessage);
 
         let formData = new FormData(target);
 
@@ -64,10 +72,12 @@ const sendform = () => {
             }
         };
 
+        
+
         postData(formData)
             .then(() => {statusMessage.innerHTML = message.loading})
-            .then(() => {statusMessage.innerHTML = message.success;})
-            .catch(() => statusMessage.innerHTML = message.failure)
+            .then(() => {target.innerHTML = message.success;})
+            .catch(() => target.innerHTML = message.failure)
             .then(clearInput);
 
     });

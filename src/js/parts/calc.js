@@ -28,6 +28,7 @@ const calc = () => {
         optionAdd[0].value = 0;
         optionAdd[1].value = 500;
         optionAdd[2].value = 1000;
+        optionAdd[3].value = 1500;
 
         let valueS = 0;
         let valueM = 0;

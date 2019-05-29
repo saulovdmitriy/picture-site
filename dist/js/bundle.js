@@ -1634,6 +1634,7 @@ var calc = function calc() {
   optionAdd[0].value = 0;
   optionAdd[1].value = 500;
   optionAdd[2].value = 1000;
+  optionAdd[3].value = 1500;
   var valueS = 0;
   var valueM = 0;
   var valueOpt = 0;
@@ -1703,11 +1704,14 @@ var menu = function menu() {
   var menuBtn = document.querySelector('.burger'),
       menu = document.querySelector('.burger-menu'),
       width = window.innerWidth;
-  console.log(width);
 
   if (width <= 768) {
     menuBtn.addEventListener('click', function () {
-      menu.classList.toggle('active');
+      if (menu.classList.contains('active')) {
+        menu.classList.remove('active');
+      } else {
+        menu.classList.add('active');
+      }
     });
   }
 };
@@ -1724,30 +1728,64 @@ module.exports = menu;
 /***/ (function(module, exports) {
 
 var picSize = function picSize() {
-  var imgSizeOne = document.querySelector('.size-1'),
+  var sizesBlock = document.querySelectorAll('.sizes-block'),
+      imgSizeOne = document.querySelector('.size-1'),
       imgSizeTwo = document.querySelector('.size-2'),
       imgSizeThree = document.querySelector('.size-3'),
       imgSizeFore = document.querySelector('.size-4');
 
-  function imgSize(img, event, source) {
-    img.addEventListener(event, function () {
-      img.src = source;
-      img.style.zIndex = 4;
+  function imgSize(event) {
+    var _loop = function _loop(i) {
+      sizesBlock[i].addEventListener(event, function () {
+        if (i == 0) {
+          imgSizeOne.src = 'src/img/sizes-1-1.png';
+          imgSizeOne.style.zIndex = 4;
 
-      if (event == 'mouseout') {
-        img.style.zIndex = 2;
-      }
-    });
+          if (event == 'mouseout') {
+            imgSizeOne.style.zIndex = 2;
+            imgSizeOne.src = 'src/img/sizes-1.png';
+          }
+        }
+
+        if (i == 1) {
+          imgSizeTwo.src = 'src/img/sizes-2-1.png';
+          imgSizeTwo.style.zIndex = 4;
+
+          if (event == 'mouseout') {
+            imgSizeTwo.style.zIndex = 2;
+            imgSizeTwo.src = 'src/img/sizes-2.png';
+          }
+        }
+
+        if (i == 2) {
+          imgSizeThree.src = 'src/img/sizes-3-1.png';
+          imgSizeThree.style.zIndex = 4;
+
+          if (event == 'mouseout') {
+            imgSizeThree.style.zIndex = 2;
+            imgSizeThree.src = 'src/img/sizes-3.png';
+          }
+        }
+
+        if (i == 3) {
+          imgSizeFore.src = 'src/img/sizes-4-1.png';
+          imgSizeFore.style.zIndex = 4;
+
+          if (event == 'mouseout') {
+            imgSizeFore.style.zIndex = 2;
+            imgSizeFore.src = 'src/img/sizes-4.png';
+          }
+        }
+      });
+    };
+
+    for (var i = 0; i < sizesBlock.length; i++) {
+      _loop(i);
+    }
   }
 
-  imgSize(imgSizeOne, 'mouseover', 'src/img/sizes-1-1.png');
-  imgSize(imgSizeTwo, 'mouseover', 'src/img/sizes-2-1.png');
-  imgSize(imgSizeThree, 'mouseover', 'src/img/sizes-3-1.png');
-  imgSize(imgSizeFore, 'mouseover', 'src/img/sizes-4-1.png');
-  imgSize(imgSizeOne, 'mouseout', 'src/img/sizes-1.png');
-  imgSize(imgSizeTwo, 'mouseout', 'src/img/sizes-2.png');
-  imgSize(imgSizeThree, 'mouseout', 'src/img/sizes-3.png');
-  imgSize(imgSizeFore, 'mouseout', 'src/img/sizes-4.png');
+  imgSize('mouseover');
+  imgSize('mouseout');
 };
 
 module.exports = picSize;
@@ -1866,27 +1904,7 @@ var popupGift = function popupGift() {
       popupOverlay.style.display = 'block';
       btnGift.style.display = 'none';
     }
-  }); // let btnClick = function() {
-  //     for (let i = 0; i < btns.length; i++) {
-  //         btns[i].addEventListener('click', function(event) {
-  //             let target = event.target;
-  //             if (target == false) {
-  //                 giftShow();
-  //             }
-  //         });
-  //     }
-  // }
-  // btnClick();
-  // function giftShow() {
-  //     window.onscroll = function() {   
-  //         if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-  //             popupGift.style.display = 'block';
-  //             popupOverlay.style.display = 'block';
-  //             btnGift.style.display = 'none';
-  //         }
-  //     };
-  // }
-  // giftShow();
+  });
 };
 
 module.exports = popupGift;
@@ -1905,11 +1923,10 @@ var _Promise = typeof Promise === 'undefined' ? __webpack_require__(/*! es6-prom
 var sendform = function sendform() {
   var message = {
     loading: "<img src=\"src/img/ajax-loader.gif\" class=\"status__img\">",
-    success: "<span class=\"status__message\">\u0412 \u0431\u043B\u0438\u0436\u0430\u0439\u0448\u0435\u0435 \u0432\u0440\u0435\u043C\u044F \u043C\u044B \u0441 \u0432\u0430\u043C\u0438 \u0441\u0432\u044F\u0436\u0435\u043C\u0441\u044F</span>",
-    failure: "<img src=\"src/img/warning.png\" class=\"status__img\"><span class=\"status__message\">\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0430\u043D\u043D\u044B\u0435 \u0441\u043D\u043E\u0432\u0430</span>"
+    success: "<span class=\"status__message\">\u0411\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u0438\u043C \u0437\u0430 \u0437\u0430\u044F\u0432\u043A\u0443! <br> \u0412 \u0431\u043B\u0438\u0436\u0430\u0439\u0448\u0435\u0435 \u0432\u0440\u0435\u043C\u044F \u043C\u044B \u0441 \u0432\u0430\u043C\u0438 \u0441\u0432\u044F\u0436\u0435\u043C\u0441\u044F</span>",
+    failure: "<span class=\"status__message\">\u041F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u0430 \u043E\u0448\u0438\u0431\u043A\u0430! \u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0430\u043D\u043D\u044B\u0435 \u0441\u043D\u043E\u0432\u0430</span>"
   };
-  var statusMessage = document.createElement('div'),
-      myPhone = document.querySelectorAll('input[type="tel"]');
+  var myPhone = document.querySelectorAll('input[type="tel"]');
 
   var _loop = function _loop(i) {
     myPhone[i].addEventListener('input', function () {
@@ -1927,12 +1944,24 @@ var sendform = function sendform() {
     _loop(i);
   }
 
-  statusMessage.classList.add('status');
+  var inputValid = document.querySelectorAll('.inputValid');
+
+  var _loop2 = function _loop2(i) {
+    inputValid[i].addEventListener('input', function () {
+      if (!/^[?!,.а-яА-ЯёЁ0-9\s]+$/.test(inputValid[i].value)) {
+        this.value = this.value.slice(0, -1);
+      }
+    });
+  };
+
+  for (var i = 0; i < inputValid.length; i++) {
+    _loop2(i);
+  }
+
   document.body.addEventListener('submit', function (event) {
     var target = event.target;
     event.preventDefault();
     var input = target.getElementsByTagName('input');
-    target.appendChild(statusMessage);
     var formData = new FormData(target);
 
     var postData = function postData(data) {
@@ -1966,9 +1995,9 @@ var sendform = function sendform() {
     postData(formData).then(function () {
       statusMessage.innerHTML = message.loading;
     }).then(function () {
-      statusMessage.innerHTML = message.success;
+      target.innerHTML = message.success;
     }).catch(function () {
-      return statusMessage.innerHTML = message.failure;
+      return target.innerHTML = message.failure;
     }).then(clearInput);
   });
 };
@@ -2083,7 +2112,7 @@ module.exports = sliderTop;
 
 var tabs = function tabs() {
   var portfolioMenu = document.querySelector('.portfolio-menu'),
-      menuItem = document.querySelectorAll('.portfolio-menu li'),
+      menuItem = document.querySelectorAll('.menu-li'),
       portfolioBlock = portfolio.querySelectorAll('.portfolio-block'),
       noPortfolio = portfolio.querySelector('.portfolio-no');
   portfolioMenu.addEventListener('click', filterClass);

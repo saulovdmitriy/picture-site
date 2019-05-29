@@ -41,30 +41,6 @@ const popupGift = () => {
             btnGift.style.display = 'none';
         }
     });
-
-    // let btnClick = function() {
-
-    //     for (let i = 0; i < btns.length; i++) {
-    //         btns[i].addEventListener('click', function(event) {
-    //             let target = event.target;
-    //             if (target == false) {
-    //                 giftShow();
-    //             }
-    //         });
-    //     }
-    // }
-    // btnClick();
-    
-    // function giftShow() {
-    //     window.onscroll = function() {   
-    //         if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-    //             popupGift.style.display = 'block';
-    //             popupOverlay.style.display = 'block';
-    //             btnGift.style.display = 'none';
-    //         }
-    //     };
-    // }
-    // giftShow();
     
 };
 

@@ -833,6 +833,9 @@ h4 {
   background-color: #f7e7e6;
   padding: 9rem 0;
 }
+.feedback-slider {
+  overflow: hidden;
+}
 .feedback-slider-item {
   padding-bottom: 5rem;
 }
@@ -1247,6 +1250,11 @@ h4 {
   width: 100%;
   height: 100%;
   background-color: rgba(178, 80, 188, 0.8);
+}
+.status__message {
+  color: #c51abb;
+  font-size: 3rem;
+  text-align: center;
 }
 @media (max-width: 1399px) {
   .paints {

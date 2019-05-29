@@ -1,10 +1,11 @@
 const tabs = () => {
 
     let portfolioMenu  = document.querySelector('.portfolio-menu'),
-        menuItem  = document.querySelectorAll('.portfolio-menu li'),
+        menuItem  = document.querySelectorAll('.menu-li'),
         portfolioBlock = portfolio.querySelectorAll('.portfolio-block'),
         noPortfolio = portfolio.querySelector('.portfolio-no');
-    
+
+        
     portfolioMenu.addEventListener('click', filterClass);
     
     function filterClass(event) {
@@ -40,7 +41,7 @@ const tabs = () => {
         classFilter('girl');
         classFilter('guy');
         classFilter('grandmother');
-        classFilter('granddad');  
+        classFilter('granddad');
     }
 };
 

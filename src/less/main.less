@@ -640,7 +640,6 @@ h1, h2, h3, h4 {
 	    }
 	}
 }
-
 .portfolio {
 	padding-top: 8rem;
 	h2, .p-heading {
@@ -874,6 +873,9 @@ h1, h2, h3, h4 {
 .feedback {
 	background-color: @pink-bg;
 	padding: 9rem 0;
+	&-slider {
+		overflow: hidden;
+	}
 	&-slider-item {
 		padding-bottom: 5rem;
 	}
@@ -1279,7 +1281,6 @@ h1, h2, h3, h4 {
 		padding: 3rem 6rem 4rem 6rem;
 	}
 }
-
 .popup-overlay {
 	z-index: 19;
 	position: fixed;
@@ -1291,6 +1292,12 @@ h1, h2, h3, h4 {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(178, 80, 188, 0.8);
+}
+
+.status__message {
+	color: @button;
+	font-size: 3rem;
+	text-align: center;
 }
 
 @media  (max-width: 1399px) {
