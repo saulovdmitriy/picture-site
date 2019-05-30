@@ -2003,7 +2003,7 @@ var sendform = function sendform() {
     };
 
     postData(formData).then(function () {
-      statusMessage.innerHTML = message.loading;
+      target.innerHTML = message.loading;
     }).then(function () {
       target.innerHTML = message.success;
     }).catch(function () {

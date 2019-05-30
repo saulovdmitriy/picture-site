@@ -75,7 +75,7 @@ const sendform = () => {
         
 
         postData(formData)
-            .then(() => {statusMessage.innerHTML = message.loading})
+            .then(() => {target.innerHTML = message.loading})
             .then(() => {target.innerHTML = message.success;})
             .catch(() => target.innerHTML = message.failure)
             .then(clearInput);
