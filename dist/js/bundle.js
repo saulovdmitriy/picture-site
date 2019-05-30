@@ -1703,17 +1703,27 @@ module.exports = loadBlocks;
 var menu = function menu() {
   var menuBtn = document.querySelector('.burger'),
       menu = document.querySelector('.burger-menu'),
-      width = window.innerWidth;
+      temp = 0;
+  window.addEventListener('resize', function () {
+    var headerMenuIsHidden = document.querySelector('.header-menu').offsetWidth;
 
-  if (width <= 768) {
-    menuBtn.addEventListener('click', function () {
-      if (menu.classList.contains('active')) {
-        menu.classList.remove('active');
+    if (headerMenuIsHidden) {
+      menu.style.display = 'none';
+    }
+  });
+  menuBtn.addEventListener('click', function () {
+    var headerMenuIsHidden = document.querySelector('.header-menu').offsetWidth;
+
+    if (!headerMenuIsHidden) {
+      if (temp == 0) {
+        menu.style.display = 'block';
+        temp++;
       } else {
-        menu.classList.add('active');
+        menu.style.display = 'none';
+        temp--;
       }
-    });
-  }
+    }
+  });
 };
 
 module.exports = menu;

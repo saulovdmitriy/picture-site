@@ -2,17 +2,28 @@ const menu = () => {
     
     let menuBtn = document.querySelector('.burger'),
         menu = document.querySelector('.burger-menu'),
-        width = window.innerWidth;
+        temp = 0;
+    
+    window.addEventListener('resize', () => {
+        let headerMenuIsHidden = document.querySelector('.header-menu').offsetWidth;
+        if (headerMenuIsHidden) {
+            menu.style.display = 'none';
+        }
+    });
 
-    if (width <= 768) {
-        menuBtn.addEventListener('click', () => {
-            if (menu.classList.contains('active')) {
-                menu.classList.remove('active');
+    menuBtn.addEventListener('click', () => {
+        let headerMenuIsHidden = document.querySelector('.header-menu').offsetWidth;
+        if (!headerMenuIsHidden) {
+            if (temp == 0) {
+                menu.style.display = 'block';
+                temp++;
             } else {
-                menu.classList.add('active');
+                menu.style.display = 'none';
+                temp--;
             }
-        });
-    }
+        }
+    });
+
 };
 
 module.exports = menu;
